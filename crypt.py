@@ -63,7 +63,7 @@ def select_folder():
     return folder_path
 
 # Uso
-password = b'rodrigo'
+password = b'password'
 folder_path = select_folder()
 if folder_path:
     encrypt_folder(folder_path, password)
