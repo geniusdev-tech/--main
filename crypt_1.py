@@ -1,5 +1,4 @@
 import os
-import base64
 from tkinter import filedialog, Tk, Button, Label, Entry, StringVar, Frame, messagebox
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import hashes
@@ -91,5 +90,6 @@ def setup_gui():
     
     root.mainloop()
 
-# Inicializar a GUI
-setup_gui()
+if __name__ == "__main__":
+    # Inicializar a GUI
+    setup_gui()
