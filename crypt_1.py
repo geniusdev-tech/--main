@@ -1,4 +1,5 @@
 import os
+import base64
 from tkinter import filedialog, Tk, Button, Label, Entry, StringVar, Frame, messagebox
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import hashes
@@ -7,7 +8,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 # Função para encriptar usando AES-GCM
 def encrypt_AES_GCM(msg, password):
     salt = os.urandom(16)
-    nonce = os.urandom(12)  # Ajuste o nonce para 12 bytes (96 bits)
+    nonce = os.urandom(12)  # Nonce de 12 bytes (96 bits)
     kdf = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=100000)
     key = kdf.derive(password)
     
@@ -15,7 +16,7 @@ def encrypt_AES_GCM(msg, password):
     encryptor = aesCipher.encryptor()
     ciphertext = encryptor.update(msg) + encryptor.finalize()
     
-    return salt, nonce, ciphertext, encryptor.tag
+    return salt, nonce, ciphertext, encryptor.tag[:16]  # Garantir que a tag seja de 16 bytes
 
 # Função para desencriptar usando AES-GCM
 def decrypt_AES_GCM(salt, nonce, ciphertext, password, tag):
@@ -90,6 +91,5 @@ def setup_gui():
     
     root.mainloop()
 
-if __name__ == "__main__":
-    # Inicializar a GUI
-    setup_gui()
+# Inicializar a GUI
+setup_gui()
