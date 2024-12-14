@@ -1,5 +1,5 @@
 import os
-import base64
+
 from tkinter import filedialog, Tk, Button, Label, Entry, StringVar, Frame, messagebox
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import hashes
