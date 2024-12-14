@@ -24,30 +24,19 @@ Certifique-se de ter as seguintes dependências instaladas:
 sudo apt update
 sudo apt install python3 python3-pip python3-tk
 pip install cryptography
+```
 
 ### Instalar Dependências no Linux
 
 ```sh
 brew install python3
 pip3 install cryptography
+```
 
-### Como executar no Linux
-
-```sh
-git clone https://github.com/usuario/repositorio.git
-cd repositorio
-python3 crypt.py
-
-### Como executar no Windows
+### Como executar no Linux, MacOS ou Windows
 
 ```sh
 git clone https://github.com/usuario/repositorio.git
 cd repositorio
 python3 crypt.py
-
-### Como executar no MacOS
-
-```sh
-git clone https://github.com/usuario/repositorio.git
-cd repositorio
-python3 crypt.py
+```
